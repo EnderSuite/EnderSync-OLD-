@@ -1,7 +1,9 @@
-# Dev tools
+# Tooling
 .idea/
 .gradle/
-gradle/
 
 # Build paths
 build/
+
+# Java
+*.class
