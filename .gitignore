@@ -1,0 +1,7 @@
+# Dev tools
+.idea/
+.gradle/
+gradle/
+
+# Build paths
+build/
