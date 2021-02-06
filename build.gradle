@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.10'
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
+group 'de.stackunderflow'
+version '5.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+    maven {
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.10"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC"
+
+    implementation "com.charleskorn.kaml:kaml:0.24.0"
+    compile "org.ktorm:ktorm-core:3.2.0"
+
+
+
+    //compileOnly 'org.bukkit:bukkit:1.14.4-R0.1-SNAPSHOT'
+    compileOnly 'org.bukkit:bukkit:1.12.2-R0.1-SNAPSHOT'
+
+    //compile group: 'stackunderflow.libs ', name: 'commandfactory', version: '1.1-SNAPSHOT'
+}
+
+
+task deployDev(dependsOn: shadowJar) {
+    /*doLast {
+        exec {
+            commandLine 'echo Done'
+            //commandLine 'scp', './build/libs/EnderSync-5.0-SNAPSHOT.jar', 'root@5.230.22.236:/home/mc_1.8/plugins/EnderSync-5.0-SNAPSHOT.jar'
+            //commandLine 'scp', './build/libs/EnderSync-5.0-SNAPSHOT.jar', 'root@5.230.22.236:/home/mc_1.10/plugins/EnderSync-5.0-SNAPSHOT.jar'
+        }
+    }*/
+}
